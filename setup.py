@@ -12,8 +12,8 @@ setup(name='justvpn'
         ,author='Kos Wu'
         ,author_email='ws00298046@163.com'
         ,license='MIT License'
-        ,packages=find_packages()
+        ,packages=["justvpn"]
         ,platforms=["all"]
         ,url='https://github.com/Koswu/JustVpn'
-        ,install_requires=["bs4", "requests", "lxml"]
+        ,install_requires=["beautifulsoup4", "requests", "lxml"]
         )
