@@ -10,4 +10,9 @@ JUSTVPN
 
 对Python的request库中Session类进行了简单封装,Demo为访问知网
 
-依赖： \* bs4 \* requests \* lxml
+依赖： 
+
+* bs4 
+* requests
+* lxml
+

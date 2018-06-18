@@ -106,6 +106,3 @@ venv.bak/
 # cache file
 *~
 
-# MarkDown README file
-/README.MD
-
