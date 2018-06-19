@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 setup(name='justvpn'
-        ,version='0.1.0'
+        ,version='0.1.1'
         ,description=(
             'An library which used to connect to JUST VPN'
             )
