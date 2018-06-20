@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 setup(name='justvpn'
-        ,version='0.1.1'
+        ,version='0.1.2'
         ,description=(
             'An library which used to connect to JUST VPN'
             )
@@ -15,5 +15,6 @@ setup(name='justvpn'
         ,packages=["justvpn"]
         ,platforms=["all"]
         ,url='https://github.com/Koswu/JustVpn'
+        ,python_requires=">=2.6, !=3.0.*, !=3.2.*, !=3.3.*"
         ,install_requires=["beautifulsoup4", "requests", "lxml"]
         )
