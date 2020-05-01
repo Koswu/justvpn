@@ -14,15 +14,11 @@ def encode_url(url):
     ssl_flag = ''
     if parsed.scheme == 'https':
         ssl_flag = ',SSL'
-    paths = os.path.split(path)
-    filename = paths[1]
-    if re.match(r'.+\.php', filename, re.IGNORECASE) is not None:
-        path = paths[0]
-    else:
-        filename = ''
+    path, filename = os.path.split(path)
     if path[-1] != '/':
         path += '/'
-    encoded_url = "https://vpn.just.edu.cn%s,DanaInfo=%s%s+%s?%s"%(path, parsed.netloc, ssl_flag, filename, parsed.query)
+    encoded_url = "https://vpn.just.edu.cn%s,DanaInfo=%s%s+%s?%s"% \
+            (path, parsed.netloc, ssl_flag, filename, parsed.query)
     return encoded_url
 
             
