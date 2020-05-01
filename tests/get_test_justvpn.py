@@ -3,17 +3,18 @@ import requests
 from bs4 import BeautifulSoup
 from justvpn import JustVpnSession
 from getpass import getpass
+import configparser
 
 
 def main(argv=None):
-    idcode = input("请输入你的学号:")
-    password = getpass("请输入你的VPN密码:")
+    config = configparser.ConfigParser()
+    config.read('account.ini')
+    idcode = config.get('account', 'username')
+    password = config.get('account', 'password')
     myaccount = JustVpnSession(idcode, password)
-    while not myaccount.login():
-        print("认证失败，请重新输入")
-        idcode = input("请输入你的学号:")
-        password = input("请输入你的VPN密码:")
-        myaccount = JustVpnSession(idcode, password)
+    if not myaccount.login():
+        print("认证失败")
+        exit(1)
     print("登录成功！")
     res = myaccount.get('cnki.net', isUrlEncode=True)#获取网页
     res.encoding = 'utf-8'
