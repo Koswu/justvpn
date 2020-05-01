@@ -27,7 +27,7 @@ class JustVpnSession(requests.Session):
                 'realm':'LDAP-REALM',
                 'tz_offset': '480',
                 'username': self._username }
-        res = self.post(self._LOGIN_URL, postdata=post_vals)
+        res = self.post(self._LOGIN_URL, data=post_vals)
        # print(res)
         soup = BeautifulSoup(res.text, 'lxml')
         #检查是否认证成功
@@ -39,11 +39,11 @@ class JustVpnSession(requests.Session):
             formDataStr = soup.find("input", id="DSIDFormDataStr").get("value")
             postdata = { 'btnContinue':'继续会话',
                     'FormDataStr':formDataStr }
-            res = self.post(self._LOGIN_URL, postdata=postdata)
+            res = self.post(self._LOGIN_URL, data=postdata)
             #soup = BeautifulSoup(res.text, 'lxml')
         return True
-    def get(self, url, isUrlEncode=True, **kwargs):
-        if isUrlEncode:
+    def get(self, url, **kwargs):
+        if 'is_encode' not in kwargs or kwargs['is_encode']:
             res = super().get(encode_url(url), verify=False, **kwargs)
         else:
             res = super().get(url, verify=False, **kwargs)
@@ -58,8 +58,8 @@ class JustVpnSession(requests.Session):
             res = super().post("https://vpn.just.edu.cn/dana/home/invalidsslsite_confirm.cgi"
                     ,data=post_vals, verify=False)
         return res
-    def post(self, url, postdata, isUrlEncode=True, **kwargs):
-        if isUrlEncode:
-            return super().post(encode_url(url), data=postdata, verify=False, **kwargs)
+    def post(self, url, data=None, json=None, **kwargs):
+        if 'is_encode' not in kwargs or kwargs['is_encode']:
+            return super().post(encode_url(url), data, json, verify=False, **kwargs)
         else:
-            return super().post(url, data=postdata, verify=False, **kwargs)
+            return super().post(url, data, json, verify=False, **kwargs)

@@ -16,7 +16,7 @@ def main(argv=None):
         print("认证失败")
         exit(1)
     print("登录成功！")
-    res = myaccount.get('cnki.net', isUrlEncode=True)#获取网页
+    res = myaccount.get('cnki.net')#获取网页
     res.encoding = 'utf-8'
     soup = BeautifulSoup(res.text, 'lxml')
     html_file = open("cnki.html","w")
