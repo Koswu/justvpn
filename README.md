@@ -5,7 +5,7 @@ JUSTVPN
 [![image](https://img.shields.io/pypi/l/justvpn.svg)](https://pypi.org/project/justvpn/)
 [![image](https://img.shields.io/pypi/pyversions/justvpn.svg)](https://pypi.org/project/justvpn/)
 
-一个方便连接江苏科技大学内网的Python库
+一个方便使用江苏科技大学VPN访问网站的Python库
 --------------------------------------
 
 对Python的request库中Session类进行了简单封装,Demo为访问知网
