@@ -37,12 +37,14 @@ class TestJustVpnSession(TestCase):
                        'jwgl.just.edu.cn:8080',
                        'http://jwgl.just.edu.cn:8080/a/b/',
                        'https://www.cnki.net/a/b',
+                       'https://www.cnki.net/a/b.php',
                        'https://ids.v.just.edu.cn:4443/cas/login?service=http%3A%2F%2Fmy.just.edu.cn%2F'
                        ]
         target_urls = ['https://54a22a8aad6e5ffd02eb5278924100b5my.v.just.edu.cn:4443/',
-                       'https://54a22a8aad6e5ffd02eb5278924100b5my.v.just.edu.cn:4443/',
+                       'https://54a22a8aad6e5ffd02eb5278924100b5my.v.just.edu.cn:4443',
                        'https://54a22a8aad6e5ffd02eb5278924100b5my.v.just.edu.cn:4443/a/b/',
-                       'https://elkssl0d53ff2b217dbf7bcdae2fa7a747bda5my.v.just.edu.cn:4443/a/b/',
+                       'https://elkssl0d53ff2b217dbf7bcdae2fa7a747bda5my.v.just.edu.cn:4443/a/b',
+                       'https://elkssl0d53ff2b217dbf7bcdae2fa7a747bda5my.v.just.edu.cn:4443/a/b.php',
                        'https://ids.v.just.edu.cn:4443/cas/login?service=http%3A%2F%2Fmy.just.edu.cn%2F'
                        ]
         for source, target in zip(source_urls, target_urls):

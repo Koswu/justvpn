@@ -86,8 +86,4 @@ class JustVpnSession(requests.Session):
         if parsed.scheme == 'https':
             prefix = 'elkssl' + prefix
         path = parsed.path
-        if path == '':
-            path = '/'
-        if path[-1] != '/':
-            path += '/'
         return 'https://%smy.v.just.edu.cn:4443%s' % (prefix, path)
