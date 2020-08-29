@@ -10,6 +10,7 @@
 
 # Distribution / packaging
 .Python
+.idea/
 build/
 develop-eggs/
 dist/
@@ -110,4 +111,7 @@ venv.bak/
 
 # Test page
 *.html
+
+#pipfile
+Pipfile
 

@@ -1,4 +1,9 @@
 lxml
 bs4
-requests
+requests~=2.24.0
 
+
+beautifulsoup4~=4.8.2
+setuptools~=49.6.0
+justvpn~=0.2.2
+urllib3>=1.25.1
