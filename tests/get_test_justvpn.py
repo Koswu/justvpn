@@ -2,7 +2,6 @@
 import requests
 from bs4 import BeautifulSoup
 from justvpn import JustVpnSession
-from getpass import getpass
 import configparser
 
 
