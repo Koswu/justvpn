@@ -11,14 +11,12 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
-
 class JustVpnSession(requests.Session):
     _WELCOME_URL = 'https://vpn.just.edu.cn/dana-na/auth/url_default/welcome.cgi'
     _LOGIN_URL = 'https://vpn.just.edu.cn/dana-na/auth/url_default/login.cgi'
     _header = {
         'User-Agent': "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"}
 
-    # LOGIN_URL = 'http://127.0.0.1:3378'
     def __init__(self, username, password):
         super().__init__()
         for key in self._header:
@@ -32,12 +30,12 @@ class JustVpnSession(requests.Session):
         realm = soup.find('input', id='realm_16')
         if realm is None:
             return False
-        post_vals = {'btnSubmit': '登录',
-                     'password': self._password,
-                     'realm': realm.get('value'),
-                     'tz_offset': '480',
-                     'username': self._username}
-        res = self.post(self._LOGIN_URL, data=post_vals)
+        post_values = {'btnSubmit': '登录',
+                       'password': self._password,
+                       'realm': realm.get('value'),
+                       'tz_offset': '480',
+                       'username': self._username}
+        res = self.post(self._LOGIN_URL, data=post_values)
         soup = BeautifulSoup(res.text, 'lxml')
         # 检查是否认证成功
         if soup.find("input", id="btnSubmit_6") is not None:
@@ -94,5 +92,3 @@ class JustVpnSession(requests.Session):
         encoded_url = "https://vpn.just.edu.cn%s,DanaInfo=%s%s+%s?%s" % \
                       (path, parsed.netloc, ssl_flag, filename, parsed.query)
         return encoded_url
-
-
